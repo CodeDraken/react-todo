@@ -22,6 +22,10 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components'
+    ],
     alias: {
       applicationStyles: 'app/styles/app.scss'
     },
@@ -43,14 +47,6 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'autoprefixer-loader?browsers=last 2 versions', 'sass']
-      },
-      {
-        test: /\.(woff|woff2)$/,
-        loader: "ignore-loader"
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: "ignore-loader"
       }
     ]
   },

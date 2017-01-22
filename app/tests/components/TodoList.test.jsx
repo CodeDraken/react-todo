@@ -13,15 +13,19 @@ describe('TodoList', () => {
   });
 
   it('should render one Todo component for each todo item', () => {
-    const todos = [
+    let todos = [
       {id: 1,text: 'item'},
       {id: 2,text: 'item 2'}
     ];
-    const todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
+    let todoList = TestUtils.renderIntoDocument(<div><TodoList todos={todos}/></div>);
 
-    setTimeout(() => {
-      const todoItemComponents = TestUtils.scryRenderedComponentsWithType( todoList, TodoItem );
-      expect(todoItemComponents.length).toBe(todos.length);
-    }, 0);
+    expect(TestUtils.isDOMComponent(todoList)).toBe(true);
+    expect(TestUtils.isCompositeComponent(todoList)).toBe(false);
+
+    let elemsCount = $(todoList).find('.todo-item').length;
+    expect(elemsCount).toBe(2);
+
+    // let todoItemComponents = TestUtils.scryRenderedComponentsWithType( todoList, TodoItem );
+    // expect(todoItemComponents.length).toBe(todos.length);
   });
 });

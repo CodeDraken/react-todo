@@ -8,13 +8,13 @@ const TodoList = (props) => {
     return todos.map( (todo) => {
       return (
         // pass all props on todo down with destructuring
-        <TodoItem key={todo.id} {...todo} />
+        <TodoItem key={todo.id} {...todo} onToggle={props.onToggle} />
       )
     });
   }
 
   return (
-    <ul>
+    <ul className="no-bullet">
       {renderTodos()}
     </ul>
   );

@@ -1,10 +1,16 @@
 import React from 'react';
 
 const TodoItem = (props) => {
-  let {text} = props;
+  let { text, completed, id } = props;
   return (
-    <li>
-      {text}
+    <li className="todo-item">
+      <label>
+        <input type="checkbox" defaultChecked={completed} onChange={() => {
+         props.onToggle(id)
+        }} />
+        {text}
+      </label>
+      
     </li>
   );
 }

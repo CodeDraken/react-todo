@@ -24,8 +24,14 @@ describe('TodoList', () => {
 
     let elemsCount = $(todoList).find('.todo-item').length;
     expect(elemsCount).toBe(2);
-
-    // let todoItemComponents = TestUtils.scryRenderedComponentsWithType( todoList, TodoItem );
-    // expect(todoItemComponents.length).toBe(todos.length);
   });
+
+  it('should show a message when no todos found', () => {
+    let todos = [];
+    let todoList = TestUtils.renderIntoDocument(<div><TodoList todos={todos}/></div>);
+    let $el = $(ReactDOM.findDOMNode(todoList));
+
+    expect($el.find('.container__message').length).toBe(1);
+  });
+
 });

@@ -19,11 +19,12 @@ describe('TodoList', () => {
     ];
     let todoList = TestUtils.renderIntoDocument(<div><TodoList todos={todos}/></div>);
 
-    expect(TestUtils.isDOMComponent(todoList)).toBe(true);
-    expect(TestUtils.isCompositeComponent(todoList)).toBe(false);
+    // expect(TestUtils.isDOMComponent(todoList)).toBe(true);
+    // expect(TestUtils.isCompositeComponent(todoList)).toBe(false);
 
-    let elemsCount = $(todoList).find('.todo-item').length;
-    expect(elemsCount).toBe(2);
+    // let elemsCount = $(todoList).find('.todo-item').length;
+    let $el = $(ReactDOM.findDOMNode(todoList));
+    expect($el.find('.todo').length).toBe(2);
   });
 
   it('should show a message when no todos found', () => {

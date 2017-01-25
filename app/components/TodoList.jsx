@@ -2,9 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import TodoItem from 'TodoItem';
+import TodoAPI from 'TodoAPI';
 
 export const TodoList = (props) => {
-  let {todos} = props;
+  let {todos, showCompleted, searchText} = props;
   let renderTodos = () => {
     if (todos.length === 0) {
       return (
@@ -12,7 +13,7 @@ export const TodoList = (props) => {
       );
     }
 
-    return todos.map( (todo) => {
+    return TodoAPI.filterTodos(todos, showCompleted, searchText).map( (todo) => {
       return (
         // pass all props on todo down with destructuring
         <TodoItem key={todo.id} {...todo}  />
@@ -30,8 +31,6 @@ export const TodoList = (props) => {
 
 export default connect(
   (state) => {
-    return {
-      todos: state.todos
-    };
+    return state;
   }
 )(TodoList);

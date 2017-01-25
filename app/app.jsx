@@ -7,11 +7,18 @@ import TodoApp from 'TodoApp';
 
 import * as actions from 'actions';
 import configure from 'configureStore';
+import TodoAPI from 'TodoAPI';
 const store = configure();
 
+
 store.subscribe(() => {
-  console.log('New state: ', store.getState());
+  const state = store.getState();
+  console.log('New state: ', state);
+  TodoAPI.setTodos(state.todos);
 });
+
+const initialTodos = TodoAPI.getTodos();
+store.dispatch(actions.addTodos(initialTodos));
 
 // Load foundation
 $(document).foundation();

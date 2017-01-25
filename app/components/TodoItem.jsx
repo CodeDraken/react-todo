@@ -1,8 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import {connect} from 'react-redux';
+import * as actions from 'actions';
 
-const TodoItem = (props) => {
-  let {text, completed, id, createdAt, completedAt} = props;
+export const TodoItem = (props) => {
+  let {text, completed, id, createdAt, completedAt, dispatch} = props;
   let todoClassName = completed
     ? 'todo todo--completed'
     : 'todo';
@@ -24,11 +26,8 @@ const TodoItem = (props) => {
     <li>
       <label className={todoClassName}>
         <div>
-          <input
-            type="checkbox"
-            defaultChecked={completed}
-            onChange={() => {
-            props.onToggle(id)
+          <input type="checkbox" defaultChecked={completed} onChange={() => {
+            dispatch(actions.toggleTodo(id));
           }}/>
         </div>
         <div>
@@ -40,4 +39,4 @@ const TodoItem = (props) => {
   );
 }
 
-export default TodoItem;
+export default connect()(TodoItem);

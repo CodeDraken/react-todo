@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import TodoItem from 'TodoItem';
 
-const TodoList = (props) => {
+export const TodoList = (props) => {
   let {todos} = props;
   let renderTodos = () => {
     if (todos.length === 0) {
@@ -13,17 +15,23 @@ const TodoList = (props) => {
     return todos.map( (todo) => {
       return (
         // pass all props on todo down with destructuring
-        <TodoItem key={todo.id} {...todo} onToggle={props.onToggle} />
+        <TodoItem key={todo.id} {...todo}  />
       )
     });
   }
 
   return (
-    <ul className="no-bullet">
+    <ul className="no-bullet todo-list">
       {renderTodos()}
     </ul>
   );
 
 }
 
-export default TodoList;
+export default connect(
+  (state) => {
+    return {
+      todos: state.todos
+    };
+  }
+)(TodoList);

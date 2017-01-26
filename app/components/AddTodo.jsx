@@ -10,7 +10,7 @@ export class AddTodo extends Component {
     let todoText = this.refs.todoInput.value;
     if ( todoText.length > 0 ) {
       this.refs.todoInput.value = '';
-      dispatch(actions.addTodo(todoText));
+      dispatch(actions.startAddTodo(todoText));
     } else {
       this.refs.todoInput.focus();
     }

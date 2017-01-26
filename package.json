@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "express": "^4.13.4",
+    "firebase": "^3.6.7",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -41,6 +42,8 @@
     "node-uuid": "^1.4.7",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-mock-store": "^1.2.1",
+    "redux-thunk": "^2.2.0",
     "sass-loader": "^4.1.1",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.0",

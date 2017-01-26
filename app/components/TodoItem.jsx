@@ -27,7 +27,7 @@ export const TodoItem = (props) => {
       <label className={todoClassName}>
         <div>
           <input type="checkbox" defaultChecked={completed} onChange={() => {
-            dispatch(actions.toggleTodo(id));
+            dispatch(actions.startToggleTodo(id, !completed));
           }}/>
         </div>
         <div>

@@ -4,8 +4,9 @@
   "description": "Simple react todo app",
   "main": "index.js",
   "scripts": {
-    "test": "karma start",
-    "start": "node server.js"
+    "test": "NODE_ENV=test karma start",
+    "build": "webpack",
+    "start": "npm run build && node server.js"
   },
   "author": "Evan @CodeDraken",
   "license": "MIT",
@@ -16,9 +17,7 @@
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
-  },
-  "devDependencies": {
+    "react-router": "^3.0.2",
     "autoprefixer-loader": "^3.2.0",
     "babel-core": "^6.5.1",
     "babel-loader": "^6.2.2",
@@ -30,13 +29,6 @@
     "expect": "^1.14.0",
     "foundation-sites": "6.2.0",
     "jquery": "^2.2.4",
-    "karma": "^1.4.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.0.0",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.1",
-    "mocha": "^3.2.0",
     "moment": "^2.17.1",
     "node-sass": "^4.3.0",
     "node-uuid": "^1.4.7",
@@ -48,5 +40,14 @@
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.13"
+  },
+  "devDependencies": {
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.1",
+    "mocha": "^3.2.0"
   }
 }

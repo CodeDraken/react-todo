@@ -7,7 +7,7 @@ import $ from 'jquery';
 
 import configureStore from 'configureStore';
 import TodoList from 'TodoList';
-import TodoApp from 'TodoApp';
+import {TodoApp} from 'TodoApp';
 
 describe('TodoApp', () => {
   it('should exist', () => {

@@ -108,9 +108,9 @@ export const login = (uid) => {
 export const startLogin = () => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithPopup(githubProvider).then((result) => {
-      console.log('Auth login: ', result);
+      //console.log('Auth login: ', result);
     }, (error) => {
-      console.log('login fail: ', error);
+      //console.log('login fail: ', error);
     });
   };
 };
@@ -125,7 +125,7 @@ export const logout = () => {
 export const startLogout = () => {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
-      console.log('signed out');
+      //console.log('signed out');
     });
   };
 };

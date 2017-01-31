@@ -91,6 +91,21 @@ describe('Reducers', () => {
       expect(res[0]).toEqual(todos[0]);
     });
 
+    it('should wipe todos on logout', () => {
+      const todos = [{
+        id: 111,
+        text: 'stuff',
+        completed: false,
+        completedAt: undefined,
+        createdAt: 0
+      }];
+      const action = {
+        type: 'LOGOUT'
+      };
+      const res = reducers.todosReducer(df(todos), df(action));
+      expect(res.length).toEqual(0);
+    });
+
   });
 
   describe('authReducer', () => {

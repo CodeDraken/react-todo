@@ -8,6 +8,9 @@
     "build": "webpack",
     "start": "npm run build && node server.js"
   },
+   "engines": {
+    "node": "6.11.1"
+  },
   "author": "Evan @CodeDraken",
   "license": "MIT",
   "dependencies": {
